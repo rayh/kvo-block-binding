@@ -4,7 +4,7 @@ Bind blocks to properties using KVO
 This repo contains a simple category, NSObject+KVOBlockBinding, and an example project.  The category adds methods for observing a keypath using a block:
 
 -(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath
-																 options:(NSKeyValueObservingOptions)options 
+                                 options:(NSKeyValueObservingOptions)options 
 																   block:(KVOBindingBlock)block;
 
 -(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
