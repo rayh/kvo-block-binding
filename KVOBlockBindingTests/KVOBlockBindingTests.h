@@ -1,17 +1,11 @@
-//
-//  KVOBlockBindingTests.h
-//  KVOBlockBindingTests
-//
-//  Created by Ray Yamamoto on 19/05/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import <SenTestingKit/SenTestingKit.h>
-
+@class ExampleModel;
 
 @interface KVOBlockBindingTests : SenTestCase {
-@private
-    
+    BOOL wasBlockCalled;
 }
+
+@property (nonatomic, retain) ExampleModel *model;
+@property (nonatomic, retain) id binding;
 
 @end

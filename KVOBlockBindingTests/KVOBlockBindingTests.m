@@ -1,33 +1,63 @@
-//
-//  KVOBlockBindingTests.m
-//  KVOBlockBindingTests
-//
-//  Created by Ray Yamamoto on 19/05/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "KVOBlockBindingTests.h"
-
+#import "NSObject+KVOBlockBinding.h"
+#import "ExampleModel.h"
 
 @implementation KVOBlockBindingTests
+@synthesize model, binding;
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    self.model = [[ExampleModel alloc] init];
+    self.model.exampleValue1 = 1;
+    self.model.exampleValue2 = -30;
+    wasBlockCalled = NO;
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
+    self.binding = nil;
     [super tearDown];
 }
 
-- (void)testExample
+- (void)bindTo:(NSString*)keyPath 
 {
-    STFail(@"Unit tests are not implemented yet in KVOBlockBindingTests");
+    wasBlockCalled = NO;
+    self.binding = [self.model addObserverForKeyPath:keyPath block:^(NSDictionary *change) {
+        wasBlockCalled = YES;
+    }];    
+}
+
+- (void)testShouldUnbindWhenReferenceIsReleased {
+    [self bindTo:@"exampleValue1"];
+    
+    self.model.exampleValue1 = 2;
+    
+    STAssertTrue(wasBlockCalled, @"Expected the block to be called");
+    wasBlockCalled = NO;
+    self.binding = nil;
+    
+    self.model.exampleValue1 = 4;
+    
+    STAssertFalse(wasBlockCalled, @"Expected the block NOT to be called");
+}
+
+- (void)testShouldCallBlockWhenKeyPathPropertyChanged
+{
+    [self bindTo:@"exampleValue1"];
+    
+    self.model.exampleValue1 = 2;
+    
+    STAssertTrue(wasBlockCalled, @"Expected the block to be called");
+}
+
+- (void)testShouldNotCallBlockWhenAnotherKeyPathPropertyChanged
+{
+    [self bindTo:@"exampleValue2"];
+    
+    self.model.exampleValue1 = 2;
+    
+    STAssertFalse(wasBlockCalled, @"Expected the block NOT to be called");
 }
 
 @end
