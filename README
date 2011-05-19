@@ -1,0 +1,15 @@
+Bind blocks to properties using KVO
+-
+
+This repo contains a simple category, NSObject+KVOBlockBinding, and an example project.  The category adds methods for observing a keypath using a block:
+
+-(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath
+																 options:(NSKeyValueObservingOptions)options 
+																   block:(KVOBindingBlock)block;
+
+-(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
+                                   block:(KVOBindingBlock)block;
+
+The second method simply calls the first with the default observing options of NSKeyValueObservingOptionNew & NSKeyValueObservingOptionOld
+
+Unlike the normal addObserver methods for KVO, these ones return an object that must be retained by the caller.  When released, the observation stops.  The example project shows a typical use case of binding a model object's properies to a couple of UILabels and using retained properties to control observation.
