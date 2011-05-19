@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71FB1A671384C7EB00CEA223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A661384C7EB00CEA223 /* UIKit.framework */; };
+		71FB1A691384C7EB00CEA223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A681384C7EB00CEA223 /* Foundation.framework */; };
+		71FB1A6B1384C7EB00CEA223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A6A1384C7EB00CEA223 /* CoreGraphics.framework */; };
+		71FB1A711384C7EB00CEA223 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71FB1A6F1384C7EB00CEA223 /* InfoPlist.strings */; };
+		71FB1A741384C7EB00CEA223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1A731384C7EB00CEA223 /* main.m */; };
+		71FB1A771384C7EB00CEA223 /* KVOBlockBindingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1A761384C7EB00CEA223 /* KVOBlockBindingAppDelegate.m */; };
+		71FB1A7A1384C7EC00CEA223 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FB1A781384C7EC00CEA223 /* MainWindow.xib */; };
+		71FB1A7D1384C7EC00CEA223 /* KVOBlockBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1A7C1384C7EC00CEA223 /* KVOBlockBindingViewController.m */; };
+		71FB1A801384C7EC00CEA223 /* KVOBlockBindingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FB1A7E1384C7EC00CEA223 /* KVOBlockBindingViewController.xib */; };
+		71FB1A871384C7EC00CEA223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A661384C7EB00CEA223 /* UIKit.framework */; };
+		71FB1A881384C7EC00CEA223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A681384C7EB00CEA223 /* Foundation.framework */; };
+		71FB1A891384C7EC00CEA223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A6A1384C7EB00CEA223 /* CoreGraphics.framework */; };
+		71FB1A911384C7ED00CEA223 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71FB1A8F1384C7ED00CEA223 /* InfoPlist.strings */; };
+		71FB1A941384C7ED00CEA223 /* KVOBlockBindingTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 71FB1A931384C7ED00CEA223 /* KVOBlockBindingTests.h */; };
+		71FB1A961384C7ED00CEA223 /* KVOBlockBindingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1A951384C7ED00CEA223 /* KVOBlockBindingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71FB1A8A1384C7EC00CEA223 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71FB1A591384C7EA00CEA223 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71FB1A611384C7EB00CEA223;
+			remoteInfo = KVOBlockBinding;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		71FB1A621384C7EB00CEA223 /* KVOBlockBinding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVOBlockBinding.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FB1A661384C7EB00CEA223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		71FB1A681384C7EB00CEA223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		71FB1A6A1384C7EB00CEA223 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		71FB1A6E1384C7EB00CEA223 /* KVOBlockBinding-Info.plist */ = {isa = PBXFileReference; path = "KVOBlockBinding-Info.plist"; sourceTree = "<group>"; };
+		71FB1A701384C7EB00CEA223 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		71FB1A721384C7EB00CEA223 /* KVOBlockBinding-Prefix.pch */ = {isa = PBXFileReference; path = "KVOBlockBinding-Prefix.pch"; sourceTree = "<group>"; };
+		71FB1A731384C7EB00CEA223 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		71FB1A751384C7EB00CEA223 /* KVOBlockBindingAppDelegate.h */ = {isa = PBXFileReference; path = KVOBlockBindingAppDelegate.h; sourceTree = "<group>"; };
+		71FB1A761384C7EB00CEA223 /* KVOBlockBindingAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOBlockBindingAppDelegate.m; sourceTree = "<group>"; };
+		71FB1A791384C7EC00CEA223 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		71FB1A7B1384C7EC00CEA223 /* KVOBlockBindingViewController.h */ = {isa = PBXFileReference; path = KVOBlockBindingViewController.h; sourceTree = "<group>"; };
+		71FB1A7C1384C7EC00CEA223 /* KVOBlockBindingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOBlockBindingViewController.m; sourceTree = "<group>"; };
+		71FB1A7F1384C7EC00CEA223 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KVOBlockBindingViewController.xib; sourceTree = "<group>"; };
+		71FB1A861384C7EC00CEA223 /* KVOBlockBindingTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KVOBlockBindingTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71FB1A8E1384C7ED00CEA223 /* KVOBlockBindingTests-Info.plist */ = {isa = PBXFileReference; path = "KVOBlockBindingTests-Info.plist"; sourceTree = "<group>"; };
+		71FB1A901384C7ED00CEA223 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		71FB1A921384C7ED00CEA223 /* KVOBlockBindingTests-Prefix.pch */ = {isa = PBXFileReference; path = "KVOBlockBindingTests-Prefix.pch"; sourceTree = "<group>"; };
+		71FB1A931384C7ED00CEA223 /* KVOBlockBindingTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVOBlockBindingTests.h; sourceTree = "<group>"; };
+		71FB1A951384C7ED00CEA223 /* KVOBlockBindingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KVOBlockBindingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71FB1A5F1384C7EB00CEA223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FB1A671384C7EB00CEA223 /* UIKit.framework in Frameworks */,
+				71FB1A691384C7EB00CEA223 /* Foundation.framework in Frameworks */,
+				71FB1A6B1384C7EB00CEA223 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71FB1A821384C7EC00CEA223 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FB1A871384C7EC00CEA223 /* UIKit.framework in Frameworks */,
+				71FB1A881384C7EC00CEA223 /* Foundation.framework in Frameworks */,
+				71FB1A891384C7EC00CEA223 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71FB1A571384C7EA00CEA223 = {
+			isa = PBXGroup;
+			children = (
+				71FB1A6C1384C7EB00CEA223 /* KVOBlockBinding */,
+				71FB1A8C1384C7EC00CEA223 /* KVOBlockBindingTests */,
+				71FB1A651384C7EB00CEA223 /* Frameworks */,
+				71FB1A631384C7EB00CEA223 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71FB1A631384C7EB00CEA223 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71FB1A621384C7EB00CEA223 /* KVOBlockBinding.app */,
+				71FB1A861384C7EC00CEA223 /* KVOBlockBindingTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71FB1A651384C7EB00CEA223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71FB1A661384C7EB00CEA223 /* UIKit.framework */,
+				71FB1A681384C7EB00CEA223 /* Foundation.framework */,
+				71FB1A6A1384C7EB00CEA223 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71FB1A6C1384C7EB00CEA223 /* KVOBlockBinding */ = {
+			isa = PBXGroup;
+			children = (
+				71FB1A751384C7EB00CEA223 /* KVOBlockBindingAppDelegate.h */,
+				71FB1A761384C7EB00CEA223 /* KVOBlockBindingAppDelegate.m */,
+				71FB1A781384C7EC00CEA223 /* MainWindow.xib */,
+				71FB1A7B1384C7EC00CEA223 /* KVOBlockBindingViewController.h */,
+				71FB1A7C1384C7EC00CEA223 /* KVOBlockBindingViewController.m */,
+				71FB1A7E1384C7EC00CEA223 /* KVOBlockBindingViewController.xib */,
+				71FB1A6D1384C7EB00CEA223 /* Supporting Files */,
+			);
+			path = KVOBlockBinding;
+			sourceTree = "<group>";
+		};
+		71FB1A6D1384C7EB00CEA223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71FB1A6E1384C7EB00CEA223 /* KVOBlockBinding-Info.plist */,
+				71FB1A6F1384C7EB00CEA223 /* InfoPlist.strings */,
+				71FB1A721384C7EB00CEA223 /* KVOBlockBinding-Prefix.pch */,
+				71FB1A731384C7EB00CEA223 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71FB1A8C1384C7EC00CEA223 /* KVOBlockBindingTests */ = {
+			isa = PBXGroup;
+			children = (
+				71FB1A931384C7ED00CEA223 /* KVOBlockBindingTests.h */,
+				71FB1A951384C7ED00CEA223 /* KVOBlockBindingTests.m */,
+				71FB1A8D1384C7ED00CEA223 /* Supporting Files */,
+			);
+			path = KVOBlockBindingTests;
+			sourceTree = "<group>";
+		};
+		71FB1A8D1384C7ED00CEA223 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				71FB1A8E1384C7ED00CEA223 /* KVOBlockBindingTests-Info.plist */,
+				71FB1A8F1384C7ED00CEA223 /* InfoPlist.strings */,
+				71FB1A921384C7ED00CEA223 /* KVOBlockBindingTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71FB1A611384C7EB00CEA223 /* KVOBlockBinding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71FB1A991384C7ED00CEA223 /* Build configuration list for PBXNativeTarget "KVOBlockBinding" */;
+			buildPhases = (
+				71FB1A5E1384C7EB00CEA223 /* Sources */,
+				71FB1A5F1384C7EB00CEA223 /* Frameworks */,
+				71FB1A601384C7EB00CEA223 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KVOBlockBinding;
+			productName = KVOBlockBinding;
+			productReference = 71FB1A621384C7EB00CEA223 /* KVOBlockBinding.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71FB1A851384C7EC00CEA223 /* KVOBlockBindingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71FB1A9C1384C7ED00CEA223 /* Build configuration list for PBXNativeTarget "KVOBlockBindingTests" */;
+			buildPhases = (
+				71FB1A811384C7EC00CEA223 /* Sources */,
+				71FB1A821384C7EC00CEA223 /* Frameworks */,
+				71FB1A831384C7EC00CEA223 /* Resources */,
+				71FB1A841384C7EC00CEA223 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71FB1A8B1384C7EC00CEA223 /* PBXTargetDependency */,
+			);
+			name = KVOBlockBindingTests;
+			productName = KVOBlockBindingTests;
+			productReference = 71FB1A861384C7EC00CEA223 /* KVOBlockBindingTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71FB1A591384C7EA00CEA223 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 71FB1A5C1384C7EA00CEA223 /* Build configuration list for PBXProject "KVOBlockBinding" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 71FB1A571384C7EA00CEA223;
+			productRefGroup = 71FB1A631384C7EB00CEA223 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71FB1A611384C7EB00CEA223 /* KVOBlockBinding */,
+				71FB1A851384C7EC00CEA223 /* KVOBlockBindingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71FB1A601384C7EB00CEA223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FB1A711384C7EB00CEA223 /* InfoPlist.strings in Resources */,
+				71FB1A7A1384C7EC00CEA223 /* MainWindow.xib in Resources */,
+				71FB1A801384C7EC00CEA223 /* KVOBlockBindingViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71FB1A831384C7EC00CEA223 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FB1A911384C7ED00CEA223 /* InfoPlist.strings in Resources */,
+				71FB1A941384C7ED00CEA223 /* KVOBlockBindingTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71FB1A841384C7EC00CEA223 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71FB1A5E1384C7EB00CEA223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FB1A741384C7EB00CEA223 /* main.m in Sources */,
+				71FB1A771384C7EB00CEA223 /* KVOBlockBindingAppDelegate.m in Sources */,
+				71FB1A7D1384C7EC00CEA223 /* KVOBlockBindingViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71FB1A811384C7EC00CEA223 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71FB1A961384C7ED00CEA223 /* KVOBlockBindingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71FB1A8B1384C7EC00CEA223 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71FB1A611384C7EB00CEA223 /* KVOBlockBinding */;
+			targetProxy = 71FB1A8A1384C7EC00CEA223 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		71FB1A6F1384C7EB00CEA223 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71FB1A701384C7EB00CEA223 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		71FB1A781384C7EC00CEA223 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71FB1A791384C7EC00CEA223 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		71FB1A7E1384C7EC00CEA223 /* KVOBlockBindingViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71FB1A7F1384C7EC00CEA223 /* en */,
+			);
+			name = KVOBlockBindingViewController.xib;
+			sourceTree = "<group>";
+		};
+		71FB1A8F1384C7ED00CEA223 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71FB1A901384C7ED00CEA223 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71FB1A971384C7ED00CEA223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		71FB1A981384C7ED00CEA223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		71FB1A9A1384C7ED00CEA223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KVOBlockBinding/KVOBlockBinding-Prefix.pch";
+				INFOPLIST_FILE = "KVOBlockBinding/KVOBlockBinding-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		71FB1A9B1384C7ED00CEA223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KVOBlockBinding/KVOBlockBinding-Prefix.pch";
+				INFOPLIST_FILE = "KVOBlockBinding/KVOBlockBinding-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		71FB1A9D1384C7ED00CEA223 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KVOBlockBinding.app/KVOBlockBinding";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KVOBlockBindingTests/KVOBlockBindingTests-Prefix.pch";
+				INFOPLIST_FILE = "KVOBlockBindingTests/KVOBlockBindingTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		71FB1A9E1384C7ED00CEA223 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/KVOBlockBinding.app/KVOBlockBinding";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KVOBlockBindingTests/KVOBlockBindingTests-Prefix.pch";
+				INFOPLIST_FILE = "KVOBlockBindingTests/KVOBlockBindingTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71FB1A5C1384C7EA00CEA223 /* Build configuration list for PBXProject "KVOBlockBinding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71FB1A971384C7ED00CEA223 /* Debug */,
+				71FB1A981384C7ED00CEA223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71FB1A991384C7ED00CEA223 /* Build configuration list for PBXNativeTarget "KVOBlockBinding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71FB1A9A1384C7ED00CEA223 /* Debug */,
+				71FB1A9B1384C7ED00CEA223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		71FB1A9C1384C7ED00CEA223 /* Build configuration list for PBXNativeTarget "KVOBlockBindingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71FB1A9D1384C7ED00CEA223 /* Debug */,
+				71FB1A9E1384C7ED00CEA223 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71FB1A591384C7EA00CEA223 /* Project object */;
+}

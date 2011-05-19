@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'KVOBlockBindingTests' target in the 'KVOBlockBindingTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
