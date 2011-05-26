@@ -20,7 +20,10 @@
 
 - (void)release 
 {
-    self.block = nil;
+    // If this release will reduce the retain count to zero, prevent further calls to the block
+    if([self retainCount]==1)
+        self.block = nil;
+    
     [super release];
 }
 
