@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		718CC05D139D08D000A56984 /* NSObject+KVOBlockBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 718CC05C139D08D000A56984 /* NSObject+KVOBlockBinding.m */; };
+		718CC05E139D08D000A56984 /* NSObject+KVOBlockBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 718CC05C139D08D000A56984 /* NSObject+KVOBlockBinding.m */; };
 		71FB1A671384C7EB00CEA223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A661384C7EB00CEA223 /* UIKit.framework */; };
 		71FB1A691384C7EB00CEA223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A681384C7EB00CEA223 /* Foundation.framework */; };
 		71FB1A6B1384C7EB00CEA223 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FB1A6A1384C7EB00CEA223 /* CoreGraphics.framework */; };
@@ -23,7 +25,6 @@
 		71FB1ABC1384C96400CEA223 /* KVOBlockBindingAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1AB11384C96400CEA223 /* KVOBlockBindingAppDelegate.m */; };
 		71FB1ABD1384C96400CEA223 /* KVOBlockBindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1AB31384C96400CEA223 /* KVOBlockBindingViewController.m */; };
 		71FB1ABE1384C96400CEA223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1AB41384C96400CEA223 /* main.m */; };
-		71FB1ABF1384C96400CEA223 /* NSObject+KVOBlockBinding.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB1AB61384C96400CEA223 /* NSObject+KVOBlockBinding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		718CC05B139D08D000A56984 /* NSObject+KVOBlockBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVOBlockBinding.h"; sourceTree = "<group>"; };
+		718CC05C139D08D000A56984 /* NSObject+KVOBlockBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVOBlockBinding.m"; sourceTree = "<group>"; };
 		71FB1A621384C7EB00CEA223 /* KVOBlockBindingExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KVOBlockBindingExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FB1A661384C7EB00CEA223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		71FB1A681384C7EB00CEA223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,8 +62,6 @@
 		71FB1AB21384C96400CEA223 /* KVOBlockBindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVOBlockBindingViewController.h; sourceTree = "<group>"; };
 		71FB1AB31384C96400CEA223 /* KVOBlockBindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVOBlockBindingViewController.m; sourceTree = "<group>"; };
 		71FB1AB41384C96400CEA223 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		71FB1AB51384C96400CEA223 /* NSObject+KVOBlockBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+KVOBlockBinding.h"; path = "KVOBlockBindingExample/NSObject+KVOBlockBinding.h"; sourceTree = SOURCE_ROOT; };
-		71FB1AB61384C96400CEA223 /* NSObject+KVOBlockBinding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+KVOBlockBinding.m"; path = "KVOBlockBindingExample/NSObject+KVOBlockBinding.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +160,8 @@
 		71FB1AC01384C97300CEA223 /* KVOBlockBinding */ = {
 			isa = PBXGroup;
 			children = (
-				71FB1AB51384C96400CEA223 /* NSObject+KVOBlockBinding.h */,
-				71FB1AB61384C96400CEA223 /* NSObject+KVOBlockBinding.m */,
+				718CC05B139D08D000A56984 /* NSObject+KVOBlockBinding.h */,
+				718CC05C139D08D000A56984 /* NSObject+KVOBlockBinding.m */,
 			);
 			path = KVOBlockBinding;
 			sourceTree = "<group>";
@@ -209,7 +210,7 @@
 /* Begin PBXProject section */
 		71FB1A591384C7EA00CEA223 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 71FB1A5C1384C7EA00CEA223 /* Build configuration list for PBXProject "KVOBlockBinding" */;
+			buildConfigurationList = 71FB1A5C1384C7EA00CEA223 /* Build configuration list for PBXProject "KVOBlockBindingExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -274,7 +275,7 @@
 				71FB1ABC1384C96400CEA223 /* KVOBlockBindingAppDelegate.m in Sources */,
 				71FB1ABD1384C96400CEA223 /* KVOBlockBindingViewController.m in Sources */,
 				71FB1ABE1384C96400CEA223 /* main.m in Sources */,
-				71FB1ABF1384C96400CEA223 /* NSObject+KVOBlockBinding.m in Sources */,
+				718CC05D139D08D000A56984 /* NSObject+KVOBlockBinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71FB1A961384C7ED00CEA223 /* KVOBlockBindingTests.m in Sources */,
+				718CC05E139D08D000A56984 /* NSObject+KVOBlockBinding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +441,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71FB1A5C1384C7EA00CEA223 /* Build configuration list for PBXProject "KVOBlockBinding" */ = {
+		71FB1A5C1384C7EA00CEA223 /* Build configuration list for PBXProject "KVOBlockBindingExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71FB1A971384C7ED00CEA223 /* Debug */,
