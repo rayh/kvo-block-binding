@@ -6,6 +6,6 @@
 }
 
 @property (nonatomic, retain) ExampleModel *model;
-@property (nonatomic, retain) id binding;
+@property (nonatomic, assign) id binding;
 
 @end

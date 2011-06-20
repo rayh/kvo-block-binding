@@ -28,14 +28,44 @@
     }];    
 }
 
-- (void)testShouldUnbindWhenReferenceIsReleased {
+- (void)testShouldUnbindWhenRemoveObserverForKeyPathIsCalled {
     [self bindTo:@"exampleValue1"];
     
     self.model.exampleValue1 = 2;
     
     STAssertTrue(wasBlockCalled, @"Expected the block to be called");
     wasBlockCalled = NO;
-    self.binding = nil;
+    [self.model removeBlockBasedObserverForKeyPath:@"exampleValue1"];
+    
+    self.model.exampleValue1 = 4;
+    
+    STAssertFalse(wasBlockCalled, @"Expected the block NOT to be called");
+}
+
+- (void)testShouldUnbindWhenRemoveAllObserversIsCalled {
+    [self bindTo:@"exampleValue1"];
+    
+    self.model.exampleValue1 = 2;
+    
+    STAssertTrue(wasBlockCalled, @"Expected the block to be called");
+    wasBlockCalled = NO;
+    
+    [self.model removeAllBlockBasedObservers];
+    
+    self.model.exampleValue1 = 4;
+    
+    STAssertFalse(wasBlockCalled, @"Expected the block NOT to be called");
+}
+
+- (void)testShouldUnbindWhenInvalidateIsCalled {
+    [self bindTo:@"exampleValue1"];
+    
+    self.model.exampleValue1 = 2;
+    
+    STAssertTrue(wasBlockCalled, @"Expected the block to be called");
+    wasBlockCalled = NO;
+    
+    [self.binding invalidate];
     
     self.model.exampleValue1 = 4;
     

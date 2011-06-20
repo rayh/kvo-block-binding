@@ -5,12 +5,16 @@
 @interface KVOBlockBindingViewController : UIViewController {
     IBOutlet UILabel *label1;
     IBOutlet UILabel *label2;
+    IBOutlet UIButton *toggleObservingValue1Button;
+    IBOutlet UIButton *toggleObservingValue2Button;
+    IBOutlet UIButton *removeObservingAllButton;
 }
 
 @property (nonatomic, retain) ExampleModel *model;
-@property (nonatomic, retain) KVOBlockBinding *label1Binding;
-@property (nonatomic, retain) KVOBlockBinding *label2Binding;
 
 -(IBAction)pressMeButtonPressed:(id)sender;
--(IBAction)stopObservingButtonPressed:(id)sender;
+-(IBAction)toggleObservingValue2ButtonPressed:(id)sender;
+-(IBAction)toggleObservingValue2ButtonPressed:(id)sender;
+-(IBAction)removeObservingAllButtonPressed:(id)sender;
+
 @end
