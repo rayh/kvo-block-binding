@@ -4,7 +4,7 @@
 #define ASSOCIATED_OBJ_KEY @"rayh_block_based_observers"
 
 @implementation KVOBlockBinding 
-@synthesize block, observed, keyPath;
+@synthesize block, observed, keyPath, owner;
 
 - (id)init {
     if((self = [super init])) {
@@ -23,9 +23,9 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)path 
-                       ofObject:(id)object 
-                         change:(NSDictionary *)change 
-                        context:(void *)context
+                      ofObject:(id)object 
+                        change:(NSDictionary *)change 
+                       context:(void *)context
 {
     if(valid)
         self.block(change);
@@ -35,6 +35,11 @@
 {
     [self.observed removeObserver:self forKeyPath:self.keyPath];
     valid = NO;
+}
+
+- (void)invoke 
+{
+    self.block([NSDictionary dictionary]);
 }
 
 - (void)release 
@@ -61,7 +66,7 @@
     return objects;
 }
 
-- (void)removeBlockBasedObserverForKeyPath:(NSString*)keyPath
+- (void)removeAllBlockBasedObserversForKeyPath:(NSString*)keyPath
 {
     for(KVOBlockBinding *binding in [NSArray arrayWithArray:[self allBlockBasedObservers]]) {
         if([binding.keyPath isEqualToString:keyPath]) {
@@ -79,7 +84,18 @@
     }
 }
 
+- (void)removeAllBlockBasedObserversForOwner:(id)owner
+{
+    for(KVOBlockBinding *binding in [NSArray arrayWithArray:[self allBlockBasedObservers]]) {
+        if([binding.owner isEqual:owner]) {
+            [binding invalidate];
+            [[self allBlockBasedObservers] removeObject:binding];
+        }
+    }
+}
+
 -(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
+                                   owner:(id)owner 
                                  options:(NSKeyValueObservingOptions)options 
                                    block:(KVOBindingBlock)block 
 {
@@ -87,6 +103,7 @@
     binding.block = block;
     binding.observed = self;
     binding.keyPath = keyPath;
+    binding.owner = owner;
     
     [[self allBlockBasedObservers] addObject:binding];
     
@@ -95,10 +112,12 @@
     return binding;
 }
 
--(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
+-(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath  
+                                   owner:(id)owner 
                                    block:(KVOBindingBlock)block 
 {
-    return [self addObserverForKeyPath:keyPath 
+    return [self addObserverForKeyPath:keyPath  
+                                 owner:owner 
                                options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld 
                                  block:block];
 }

@@ -4,28 +4,38 @@ This repo contains a simple category, NSObject+KVOBlockBinding, and an example p
 
 `
 -(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath
+                                   owner:(id)owner
                                  options:(NSKeyValueObservingOptions)options
                                    block:(KVOBindingBlock)block;`
 `
 
 `
 -(KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
+                                   owner:(id)owner
                                    block:(KVOBindingBlock)block;
 `
 
-The second method simply calls the first with the default observing options of NSKeyValueObservingOptionNew & NSKeyValueObservingOptionOld
+The keyPath is the standard ObjectiveC of referencing properties within an object tree (e.g. @"some.path.to.property").  The owner is the object that manages the blocks so that it can remove them all when the object is deallocd.  The options are the same as you would pass for the traditional KVO methods.  The second method simply calls the first with the default observing options of NSKeyValueObservingOptionNew & NSKeyValueObservingOptionOld
 
-To remove the bindings, there are two methods
+To remove the bindings, there are three methods:
+
+This will remove all observers for the owner that was specified when adding:
 
 `
-- (void)removeBlockBasedObserverForKeyPath:(NSString*)keyPath;
+- (void)removeAllBlockBasedObserversForOwner:(id)owner;
 `
+
+This will remove all observers for a particular keypath:
+
+`
+- (void)removeAllBlockBasedObserversForKeyPath:(NSString*)keyPath;
+`
+
+And this will remove ALL block-based observers on the receiver
 
 `
 - (void)removeAllBlockBasedObservers;
 `
-
-Which will remove all observers for a particular keypath, or all observers on the object respectively.
 
 Also, unlike the normal addObserver methods for KVO, these ones return an object that can be stored (assign or weak) by the caller.  This object has a single method, `invalidate`, which allows the caller to selectively remove a particular binding without affecting any others on the same object.
 
