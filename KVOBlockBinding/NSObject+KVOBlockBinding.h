@@ -5,7 +5,7 @@ typedef void (^KVOBindingBlock)(NSDictionary *change);
 @interface KVOBlockBinding : NSObject {
     BOOL valid;
 }
-@property (nonatomic, retain) id owner;
+@property (nonatomic, assign) id owner;
 @property (nonatomic, retain) NSString *keyPath;
 @property (nonatomic, copy) KVOBindingBlock block;
 @property (nonatomic, assign) id observed;
