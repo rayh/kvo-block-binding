@@ -8,7 +8,7 @@
 - (void)setUp
 {
     [super setUp];
-    self.model = [[ExampleModel alloc] init];
+    self.model = [[[ExampleModel alloc] init] autorelease];
     self.model.exampleValue1 = 1;
     self.model.exampleValue2 = -30;
     wasBlockCalled = NO;
@@ -17,14 +17,15 @@
 - (void)tearDown
 {
     self.binding = nil;
+    self.model = nil;
     [super tearDown];
 }
 
 - (void)bindTo:(NSString*)keyPath 
 {
-    wasBlockCalled = NO;
-    self.binding = [self.model addObserverForKeyPath:keyPath block:^(NSDictionary *change) {
-        wasBlockCalled = YES;
+    __block KVOBlockBindingTests *blockSelf = self;
+    self.binding = [self.model addObserverForKeyPath:keyPath owner:self block:^(NSDictionary *change) {
+        blockSelf->wasBlockCalled = YES;
     }];    
 }
 
@@ -35,7 +36,7 @@
     
     STAssertTrue(wasBlockCalled, @"Expected the block to be called");
     wasBlockCalled = NO;
-    [self.model removeBlockBasedObserverForKeyPath:@"exampleValue1"];
+    [self.model removeAllBlockBasedObserversForOwner:self];
     
     self.model.exampleValue1 = 4;
     
@@ -79,6 +80,7 @@
     self.model.exampleValue1 = 2;
     
     STAssertTrue(wasBlockCalled, @"Expected the block to be called");
+    [self.binding invalidate];
 }
 
 - (void)testShouldNotCallBlockWhenAnotherKeyPathPropertyChanged
@@ -88,6 +90,6 @@
     self.model.exampleValue1 = 2;
     
     STAssertFalse(wasBlockCalled, @"Expected the block NOT to be called");
+    [self.binding invalidate];
 }
-
 @end

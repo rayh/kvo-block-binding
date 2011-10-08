@@ -15,7 +15,7 @@
 {
     toggleObservingValue1Button.selected = YES;
     [toggleObservingValue1Button setTitle:@"Stop Observing Value1" forState:UIControlStateNormal];
-    [self.model addObserverForKeyPath:@"exampleValue1" block:^(NSDictionary *change) {
+    [self.model addObserverForKeyPath:@"exampleValue1" owner:self block:^(NSDictionary *change) {
         label1.text = [NSString stringWithFormat:@"%d", self.model.exampleValue1];
     }];
 }
@@ -24,7 +24,7 @@
 {
     toggleObservingValue2Button.selected = YES;
     [toggleObservingValue2Button setTitle:@"Stop Observing Value2" forState:UIControlStateNormal];
-    [self.model addObserverForKeyPath:@"exampleValue2" block:^(NSDictionary *change) {
+    [self.model addObserverForKeyPath:@"exampleValue2" owner:self block:^(NSDictionary *change) {
         label2.text = [NSString stringWithFormat:@"%@ -> %@", [change valueForKey:NSKeyValueChangeOldKey] , [change valueForKey:NSKeyValueChangeNewKey]];
     }];
 }
@@ -32,14 +32,14 @@
 -(void)removeObserverFromValue1
 {
     toggleObservingValue1Button.selected = NO;
-    [self.model removeBlockBasedObserverForKeyPath:@"exampleValue1"];
+    [self.model removeAllBlockBasedObserversForKeyPath:@"exampleValue1"];
     [toggleObservingValue1Button setTitle:@"Start Observing Value1" forState:UIControlStateNormal];
 }
 		
 -(void)removeObserverFromValue2
 {
     toggleObservingValue2Button.selected = NO;
-    [self.model removeBlockBasedObserverForKeyPath:@"exampleValue2"];
+    [self.model removeAllBlockBasedObserversForKeyPath:@"exampleValue2"];
     [toggleObservingValue2Button setTitle:@"Start Observing Value2" forState:UIControlStateNormal];
 }
 
