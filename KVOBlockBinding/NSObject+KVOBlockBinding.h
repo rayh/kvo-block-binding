@@ -1,13 +1,13 @@
 #import <Foundation/Foundation.h>
 
-typedef void (^KVOBindingBlock)(NSDictionary *change);
+typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
 
-@interface KVOBlockBinding : NSObject {
+@interface WSObservationBinding : NSObject {
     BOOL valid;
 }
 @property (nonatomic, assign) id owner;
 @property (nonatomic, retain) NSString *keyPath;
-@property (nonatomic, copy) KVOBindingBlock block;
+@property (nonatomic, copy) WSObservationBlock block;
 @property (nonatomic, assign) id observed;
 
 /**
@@ -23,6 +23,20 @@ typedef void (^KVOBindingBlock)(NSDictionary *change);
 
 @end
 
+@interface NSObject (WSObservation)
+
+- (void)removeAllObservationsOn:(id)object;
+- (void)removeAllObservations;
+- (WSObservationBinding*)observe:(id)object 
+                         keyPath:(NSString *)keyPath
+                         options:(NSKeyValueObservingOptions)options 
+                           block:(WSObservationBlock)block;
+
+- (WSObservationBinding*)observe:(id)object 
+                         keyPath:(NSString *)keyPath
+                           block:(WSObservationBlock)block;
+@end
+
 @interface NSObject (KVOBlockBinding)
 
 /**
@@ -34,10 +48,10 @@ typedef void (^KVOBindingBlock)(NSDictionary *change);
  * @param block the block that should be invoked when the keyPath changes
  * @return An object that should be retained while the observation is needed
  */
-- (KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
-                                    owner:(id)owner
-                                  options:(NSKeyValueObservingOptions)options 
-                                    block:(KVOBindingBlock)block;
+- (WSObservationBinding*)addObserverForKeyPath:(NSString*)keyPath 
+                                         owner:(id)owner
+                                       options:(NSKeyValueObservingOptions)options 
+                                         block:(WSObservationBlock)block;
 
 /**
  * Same as above, except the default options are set to NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
@@ -47,9 +61,9 @@ typedef void (^KVOBindingBlock)(NSDictionary *change);
  * @param block the block that should be invoked when the keyPath changes
  * @return An object that should be retained while the observation is needed
  */
-- (KVOBlockBinding*)addObserverForKeyPath:(NSString*)keyPath 
-                                    owner:(id)owner
-                                    block:(KVOBindingBlock)block;
+- (WSObservationBinding*)addObserverForKeyPath:(NSString*)keyPath 
+                                         owner:(id)owner
+                                         block:(WSObservationBlock)block;
 
 /**
  * Remove all block-based observers for the specified keypath on this object.
