@@ -4,18 +4,30 @@
 #define ASSOCIATED_OBJ_OBSERVERS_KEY @"rayh_block_based_observers"
 #define ASSOCIATED_OBJ_OBSERVING_KEY @"rayh_block_based_observing"
 
+@interface WSObservationBinding ()
+@property (nonatomic, assign) BOOL valid;
+@property (nonatomic, assign) id owner;
+@property (nonatomic, retain) NSString *keyPath;
+@property (nonatomic, copy) WSObservationBlock block;
+@property (nonatomic, assign) id observed;
+@end
+
 @implementation WSObservationBinding 
-@synthesize block, observed, keyPath, owner;
+@synthesize valid=valid_;
+@synthesize block=block_;
+@synthesize observed=observed_;
+@synthesize keyPath=keyPath_;
+@synthesize owner=owner_;
 
 - (id)init {
     if((self = [super init])) {
-        valid = YES;
+        self.valid = YES;
     }
     return self;
     
 }
 - (void)dealloc {
-    if(valid)
+    if(self.valid)
         [self invalidate];
     
     self.block = nil;
@@ -28,14 +40,14 @@
                         change:(NSDictionary *)change 
                        context:(void *)context
 {
-    if(valid)
+    if(self.valid)
         self.block(self.observed, change);
 }
 
 - (void)invalidate
 {
     [self.observed removeObserver:self forKeyPath:self.keyPath];
-    valid = NO;
+    self.valid = NO;
 }
 
 - (void)invoke 
@@ -75,6 +87,16 @@
     }
 }
 
+
+- (void)removeAllObserverationsOn:(id)object keyPath:(NSString*)keyPath
+{
+    for(WSObservationBinding *binding in [NSArray arrayWithArray:[self allBlockBasedObservations]]) {
+        if([binding.observed isEqual:object] && [binding.keyPath isEqualToString:keyPath]) {
+            [binding invalidate];
+            [[self allBlockBasedObservations] removeObject:binding];
+        }
+    }
+}
 
 -(WSObservationBinding*)observe:(id)object 
                    keyPath:(NSString *)keyPath

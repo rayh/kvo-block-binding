@@ -2,13 +2,7 @@
 
 typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
 
-@interface WSObservationBinding : NSObject {
-    BOOL valid;
-}
-@property (nonatomic, assign) id owner;
-@property (nonatomic, retain) NSString *keyPath;
-@property (nonatomic, copy) WSObservationBlock block;
-@property (nonatomic, assign) id observed;
+@interface WSObservationBinding : NSObject
 
 /**
  * If a reference to the binding is kept by the caller to addObserver... then it can use this method to selectively just 
@@ -25,13 +19,49 @@ typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
 
 @interface NSObject (WSObservation)
 
+/**
+ * Remove all block-based observers for the specified object.
+ *
+ * @param object the object to stop observing
+ */
 - (void)removeAllObservationsOn:(id)object;
+
+/**
+ * Remove all block-based observerations.  This does not affect traditional KVO observers.
+ */
 - (void)removeAllObservations;
+
+
+/**
+ * Remove all block-based observers for the specified object and keypath.
+ *
+ * @param object the object to stop observing
+ * @param keyPath The keypath of the property from which to remove observers
+ */
+- (void)removeAllObserverationsOn:(id)object keyPath:(NSString*)keyPath;
+
+/**
+ * Observe the keypath with the provided block while the returned object is retained
+ *
+ * @param object The object to observe
+ * @param keyPath The keypath of the property to observe using KVO
+ * @param options The ORd set of NSKeyValueObservingOptions
+ * @param block the block that should be invoked when the keyPath changes
+ * @return An object representing the binding, this does NOT need to be retained
+ */
 - (WSObservationBinding*)observe:(id)object 
                          keyPath:(NSString *)keyPath
                          options:(NSKeyValueObservingOptions)options 
                            block:(WSObservationBlock)block;
 
+/**
+ * Same as above, except the default options are set to NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
+ *
+ * @param object The object to observe
+ * @param keyPath The keypath of the property to observe using KVO
+ * @param block the block that should be invoked when the keyPath changes
+ * @return An object representing the binding, this does NOT need to be retained
+ */
 - (WSObservationBinding*)observe:(id)object 
                          keyPath:(NSString *)keyPath
                            block:(WSObservationBlock)block;
@@ -46,7 +76,7 @@ typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
  * @param owner The owner of this binding, used to unbind all observers for a particular owner
  * @param options The ORd set of NSKeyValueObservingOptions
  * @param block the block that should be invoked when the keyPath changes
- * @return An object that should be retained while the observation is needed
+ * @return An object representing the binding, this does NOT need to be retained
  */
 - (WSObservationBinding*)addObserverForKeyPath:(NSString*)keyPath 
                                          owner:(id)owner
@@ -59,7 +89,7 @@ typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
  * @param keyPath The keypath of the property to observe using KVO
  * @param owner The owner of this binding, used to unbind all observers for a particular owner
  * @param block the block that should be invoked when the keyPath changes
- * @return An object that should be retained while the observation is needed
+ * @return An object representing the binding, this does NOT need to be retained
  */
 - (WSObservationBinding*)addObserverForKeyPath:(NSString*)keyPath 
                                          owner:(id)owner
