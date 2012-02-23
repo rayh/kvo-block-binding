@@ -66,7 +66,16 @@ typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
                          keyPath:(NSString *)keyPath
                            block:(WSObservationBlock)block;
 
-- (NSArray *) bind:(id)source keyPath:(NSString *)sourcePath to:(id) target keyPath:(NSString *)targetPath;
+/**
+ * Sets up keypath binding between the source and target objects.  
+ *
+ * @param source The source object to observe
+ * @param sourcePath The keypath of the property to observe on the source using KVO
+ * @param target The target object to observe
+ * @param targetPath The keypath of the property to observe on the target using KVO
+ * @return An array containing the binding and it's reverse, if specified. This does NOT need to be retained
+ */
+- (NSMutableArray *) bind:(id)source keyPath:(NSString *)sourcePath to:(id) target keyPath:(NSString *)targetPath addReverseBinding:(BOOL)addReverseBinding;
 @end
 
 @interface NSObject (KVOBlockBinding)
