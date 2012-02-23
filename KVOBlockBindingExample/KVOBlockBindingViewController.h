@@ -11,6 +11,10 @@
 }
 
 @property (nonatomic, retain) ExampleModel *model;
+@property (retain, nonatomic) IBOutlet UIStepper *stepper1;
+@property (retain, nonatomic) IBOutlet UIStepper *stepper2;
+@property (retain, nonatomic) IBOutlet UILabel *stepper1Label;
+@property (retain, nonatomic) IBOutlet UILabel *stepper2Label;
 
 -(IBAction)pressMeButtonPressed:(id)sender;
 -(IBAction)toggleObservingValue2ButtonPressed:(id)sender;

@@ -4,10 +4,18 @@
 
 @implementation KVOBlockBindingViewController
 @synthesize model;
+@synthesize stepper1;
+@synthesize stepper2;
+@synthesize stepper1Label;
+@synthesize stepper2Label;
 
 - (void)dealloc
 {
-    self.model = nil;
+    self.model = nil;   
+    [stepper1 release];
+    [stepper2 release];
+    [stepper1Label release];
+    [stepper2Label release];
     [super dealloc];
 }
 
@@ -15,7 +23,7 @@
 {
     toggleObservingValue1Button.selected = YES;
     [toggleObservingValue1Button setTitle:@"Stop Observing Value1" forState:UIControlStateNormal];
-    [self.model addObserverForKeyPath:@"exampleValue1" owner:self block:^(NSDictionary *change) {
+    [self.model addObserverForKeyPath:@"exampleValue1" owner:self block:^(id observed, NSDictionary *change) {
         label1.text = [NSString stringWithFormat:@"%d", self.model.exampleValue1];
     }];
 }
@@ -24,9 +32,23 @@
 {
     toggleObservingValue2Button.selected = YES;
     [toggleObservingValue2Button setTitle:@"Stop Observing Value2" forState:UIControlStateNormal];
-    [self.model addObserverForKeyPath:@"exampleValue2" owner:self block:^(NSDictionary *change) {
+    [self.model addObserverForKeyPath:@"exampleValue2" owner:self block:^(id observed, NSDictionary *change) {
         label2.text = [NSString stringWithFormat:@"%@ -> %@", [change valueForKey:NSKeyValueChangeOldKey] , [change valueForKey:NSKeyValueChangeNewKey]];
     }];
+}
+
+-(void)twoWayBinding
+{
+    [self bind:stepper1 keyPath:@"value" to:stepper2 keyPath:@"value" addReverseBinding:YES];
+    
+    // add one way blocks to observe the stepper values
+    [self observe:stepper1 keyPath:@"value" block:^(id observed, NSDictionary *change) {       
+        stepper1Label.text = [NSString stringWithFormat:@"%1.0f",stepper1.value];
+    }];
+    [self observe:stepper2 keyPath:@"value" block:^(id observed, NSDictionary *change) {
+        stepper2Label.text = [NSString stringWithFormat:@"%1.0f",stepper2.value];
+    }];
+
 }
 
 -(void)removeObserverFromValue1
@@ -54,6 +76,8 @@
     
     [self bindObserverToValue1];
     [self bindObserverToValue2];
+    
+    [self twoWayBinding];
 }
 
 
@@ -79,4 +103,11 @@
     [self removeObserverFromValue2];
 }
 
+- (void)viewDidUnload {
+    [self setStepper1:nil];
+    [self setStepper2:nil];
+    [self setStepper1Label:nil];
+    [self setStepper2Label:nil];
+    [super viewDidUnload];
+}
 @end
