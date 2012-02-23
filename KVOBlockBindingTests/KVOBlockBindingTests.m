@@ -24,7 +24,7 @@
 - (void)bindTo:(NSString*)keyPath 
 {
     __block KVOBlockBindingTests *blockSelf = self;
-    self.binding = [self.model addObserverForKeyPath:keyPath owner:self block:^(NSDictionary *change) {
+    self.binding = [self.model addObserverForKeyPath:keyPath owner:self block:^(id observed, NSDictionary *change) {
         blockSelf->wasBlockCalled = YES;
     }];    
 }
@@ -91,5 +91,25 @@
     
     STAssertFalse(wasBlockCalled, @"Expected the block NOT to be called");
     [self.binding invalidate];
+}
+
+- (void) testTwoWayBinding
+{
+    NSMutableArray *bindings = [self bind:self.model keyPath:@"exampleValue1" to:self.model keyPath:@"exampleValue2" addReverseBinding:YES];
+    
+    self.model.exampleValue1 = 1; // no change
+    STAssertFalse(self.model.exampleValue2 == self.model.exampleValue1, @"Identical changes should not trigger an update of the target object");
+    
+    self.model.exampleValue1 = 10;
+    STAssertTrue(self.model.exampleValue2 == self.model.exampleValue1, @"Source/Target binding did not product expected result. Expected: %d, Actual: %d",self.model.exampleValue1,self.model.exampleValue2);
+    
+    self.model.exampleValue2 = 20;
+    STAssertTrue(self.model.exampleValue1 == self.model.exampleValue2, @"Target/Source binding did not product expected result. Expected: %d, Actual: %d",self.model.exampleValue2,self.model.exampleValue1);
+    
+    
+    for (WSObservationBinding *binder in bindings) {
+        [binding invalidate];
+        [[self allBlockBasedObservations] removeObject:binder];
+    }
 }
 @end
