@@ -65,6 +65,8 @@ typedef void (^WSObservationBlock)(id observed, NSDictionary *change);
 - (WSObservationBinding*)observe:(id)object 
                          keyPath:(NSString *)keyPath
                            block:(WSObservationBlock)block;
+
+- (NSArray *) bind:(id)source keyPath:(NSString *)sourcePath to:(id) target keyPath:(NSString *)targetPath;
 @end
 
 @interface NSObject (KVOBlockBinding)

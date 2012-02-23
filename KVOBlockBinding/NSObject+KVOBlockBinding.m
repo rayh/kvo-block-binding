@@ -40,7 +40,7 @@
                         change:(NSDictionary *)change 
                        context:(void *)context
 {
-    if(self.valid)
+    if(self.valid && ![[change valueForKey:NSKeyValueChangeNewKey] isEqual:[change valueForKey:NSKeyValueChangeOldKey]]) 
         self.block(self.observed, change);
 }
 
@@ -125,6 +125,19 @@
                  keyPath:keyPath 
                  options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld 
                    block:block];
+}
+- (NSMutableArray *) bind:(id)source keyPath:(NSString *)sourcePath to:(id) target keyPath:(NSString *)targetPath {
+    NSMutableArray *bindings = [[[NSMutableArray alloc] init] autorelease];
+    
+    [bindings addObject:[self observe:source keyPath:sourcePath block:^(id observed, NSDictionary *change) {
+        [target setValue:[change valueForKey:NSKeyValueChangeNewKey] forKey:targetPath];
+    }]];
+    
+    [bindings addObject:[self observe:target keyPath:targetPath block:^(id observed, NSDictionary *change) {
+        [source setValue:[change valueForKey:NSKeyValueChangeNewKey] forKey:sourcePath];
+    }]];
+
+    return bindings;
 }
 
 @end
