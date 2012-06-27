@@ -19,20 +19,19 @@
 @synthesize keyPath=keyPath_;
 @synthesize owner=owner_;
 
-- (id)init {
+- (id)init 
+{
     if((self = [super init])) {
         self.valid = YES;
     }
     return self;
     
 }
-- (void)dealloc {
+
+- (void)dealloc 
+{
     if(self.valid)
         [self invalidate];
-    
-    self.block = nil;
-    self.keyPath = nil;
-    [super dealloc];  
 }
 
 - (void)observeValueForKeyPath:(NSString *)path 
@@ -103,7 +102,7 @@
                    options:(NSKeyValueObservingOptions)options 
                      block:(WSObservationBlock)block 
 {
-    WSObservationBinding *binding = [[[WSObservationBinding alloc] init] autorelease];
+    WSObservationBinding *binding = [[WSObservationBinding alloc] init];
     binding.block = block;
     binding.observed = object;
     binding.keyPath = keyPath;
@@ -127,7 +126,7 @@
                    block:block];
 }
 - (NSMutableArray *) bind:(id)source keyPath:(NSString *)sourcePath to:(id) target keyPath:(NSString *)targetPath addReverseBinding:(BOOL)addReverseBinding {
-    NSMutableArray *bindings = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *bindings = [[NSMutableArray alloc] init];
     
     [bindings addObject:[self observe:source keyPath:sourcePath block:^(id observed, NSDictionary *change) {
         [target setValue:[change valueForKey:NSKeyValueChangeNewKey] forKey:targetPath];
@@ -190,7 +189,7 @@
                                  options:(NSKeyValueObservingOptions)options 
                                    block:(WSObservationBlock)block 
 {
-    WSObservationBinding *binding = [[[WSObservationBinding alloc] init] autorelease];
+    WSObservationBinding *binding = [[WSObservationBinding alloc] init];
     binding.block = block;
     binding.observed = self;
     binding.keyPath = keyPath;
