@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WSObservationBinding.h"
+#import "EXTKeyPathCoding.h"
 
 @interface NSObject (WSObservation)
 
