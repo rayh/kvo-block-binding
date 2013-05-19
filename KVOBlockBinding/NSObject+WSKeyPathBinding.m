@@ -49,6 +49,7 @@
         if([binding.keyPath isEqualToString:keyPath])
         {
             [binding invalidate];
+            binding.block = nil;
             [[self allKeyPathBindings] removeObject:binding];
         }
     }
@@ -59,6 +60,7 @@
     for(WSObservationBinding *binding in [self allKeyPathBindings])
     {
         [binding invalidate];
+        binding.block = nil;
     }
     
     [[self allKeyPathBindings] removeAllObjects];
